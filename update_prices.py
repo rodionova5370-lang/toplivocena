@@ -90,6 +90,9 @@ for fuel, slug in slug_map.items():
     content = re.sub(
         r'(class="value (?:up|down)" data-field="year">)[^<]*(</div>)',
         rf'\g<1>{d["year"]}\g<2>', content)
+    content = re.sub(
+        r'(data-field="updated">Обновлено: )[^·]*(· источник: Росстат, СПбМТСБ</div>)',
+        rf'\g<1>{data["date_label"]} \g<2>', content)
 
     open(path, 'w', encoding='utf-8').write(content)
 
