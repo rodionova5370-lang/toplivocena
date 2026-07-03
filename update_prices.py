@@ -47,14 +47,19 @@ home_path = 'index.html'
 content = open(home_path, encoding='utf-8').read()
 
 for fuel, d in data['fuels'].items():
+    if d['source'] == 'rosstat':
+        sub = f'{d["month"]} за месяц · Росстат, {data["rosstat_week_label"]}'
+    else:
+        sub = f'по данным агрегаторов, {data["date_label"]}'
+
     # KPI card price
     content = re.sub(
         rf'(data-fuel="{fuel}">\s*<div class="kpi-top">.*?</div>\s*<div class="kpi-price" data-field="price">)[^<]*( <span class="kpi-unit">₽/л</span></div>)',
         rf'\g<1>{d["price"]}\g<2>', content, flags=re.S)
-    # KPI card sub
+    # KPI card sub (auto-composed from date + source)
     content = re.sub(
         rf'(data-fuel="{fuel}">.*?<div class="kpi-sub" data-field="sub">)[^<]*(</div>)',
-        rf'\g<1>{d["sub"]}\g<2>', content, flags=re.S)
+        rf'\g<1>{sub}\g<2>', content, flags=re.S)
     # compare table row
     content = re.sub(
         rf'(<tr data-fuel="{fuel}">.*?data-field="price">)[^<]*(</td>)'

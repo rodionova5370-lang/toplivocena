@@ -1,5 +1,6 @@
 {
   "date_label": "2 июля 2026",
+  "rosstat_week_label": "22–29 июня 2026",
   "usd": "77.93 ₽",
   "brent": "$70.93",
   "fuels": {
@@ -12,7 +13,7 @@
       "month_dir": "up",
       "year": "+12.3%",
       "year_dir": "up",
-      "sub": "+1.8% за месяц · Росстат, 22–29 июня 2026"
+      "source": "rosstat"
     },
     "ai95": {
       "price": "74.38",
@@ -23,7 +24,7 @@
       "month_dir": "up",
       "year": "+11.4%",
       "year_dir": "up",
-      "sub": "+2.1% за месяц · Росстат, 22–29 июня 2026"
+      "source": "rosstat"
     },
     "ai98": {
       "price": "93.56",
@@ -33,7 +34,7 @@
       "month_dir": "up",
       "year": "+11.9%",
       "year_dir": "up",
-      "sub": "по данным агрегаторов, 2 июля 2026"
+      "source": "aggregator"
     },
     "ai100": {
       "price": "93.90",
@@ -43,7 +44,7 @@
       "month_dir": "up",
       "year": "+11.9%",
       "year_dir": "up",
-      "sub": "по данным агрегаторов, 2 июля 2026"
+      "source": "aggregator"
     },
     "dt": {
       "price": "80.69",
@@ -53,7 +54,7 @@
       "month_dir": "up",
       "year": "+6.5%",
       "year_dir": "up",
-      "sub": "по данным агрегаторов, 2 июля 2026"
+      "source": "aggregator"
     }
   }
 }
