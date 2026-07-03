@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="yandex-verification" content="650ce87388e5f96a" />
+<link rel="icon" href="favicon.png" type="image/png">
 <title>Цена топлива в России сегодня — АИ-92, АИ-95, ДТ</title>
 <meta name="description" content="Актуальные цены на бензин АИ-92, АИ-95, АИ-98 и дизельное топливо в России. Динамика цен, сравнение по регионам, история с 1991 года.">
 <link rel="canonical" href="https://toplivocena.ru/">
@@ -46,41 +48,9 @@
 
 <main class="wrap">
 
-  <!-- Filters -->
-  <section class="filters">
-    <div class="filter-group">
-      <label>Вид топлива</label>
-      <select id="fuelFilter">
-        <option>АИ-92</option>
-        <option>АИ-95</option>
-        <option>АИ-98</option>
-        <option>АИ-100</option>
-        <option>ДТ</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Период</label>
-      <select id="periodFilter">
-        <option>Неделя</option>
-        <option selected>Месяц</option>
-        <option>Год</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Регион</label>
-      <select id="regionFilter">
-        <option>Вся Россия</option>
-        <option>Москва</option>
-        <option>Санкт-Петербург</option>
-        <option>Челябинская область</option>
-        <option>Камчатский край</option>
-      </select>
-    </div>
-  </section>
-
   <!-- KPI cards -->
   <section class="kpi-grid" id="fuel">
-    <a href="fuel/ai-92/index.html" class="card kpi-card">
+    <a href="fuel/ai-92/" class="card kpi-card">
       <div class="kpi-top">
         <span class="kpi-name">АИ-92</span>
         <span class="kpi-change up">+0.4% за неделю</span>
@@ -88,7 +58,7 @@
       <div class="kpi-price">68.76 <span class="kpi-unit">₽/л</span></div>
       <div class="kpi-sub">+1.8% за месяц · Росстат, 22–29 июня 2026</div>
     </a>
-    <a href="fuel/ai-95/index.html" class="card kpi-card">
+    <a href="fuel/ai-95/" class="card kpi-card">
       <div class="kpi-top">
         <span class="kpi-name">АИ-95</span>
         <span class="kpi-change up">+0.5% за неделю</span>
@@ -96,7 +66,7 @@
       <div class="kpi-price">74.38 <span class="kpi-unit">₽/л</span></div>
       <div class="kpi-sub">+2.1% за месяц · Росстат, 22–29 июня 2026</div>
     </a>
-    <a href="fuel/ai-98/index.html" class="card kpi-card">
+    <a href="fuel/ai-98/" class="card kpi-card">
       <div class="kpi-top">
         <span class="kpi-name">АИ-98</span>
         <span class="kpi-change up">+0.3% за неделю</span>
@@ -104,7 +74,7 @@
       <div class="kpi-price">93.56 <span class="kpi-unit">₽/л</span></div>
       <div class="kpi-sub">по данным агрегаторов, 2 июля 2026</div>
     </a>
-    <a href="fuel/dt/index.html" class="card kpi-card">
+    <a href="fuel/dt/" class="card kpi-card">
       <div class="kpi-top">
         <span class="kpi-name">ДТ</span>
         <span class="kpi-change up">+0.6% за неделю</span>
@@ -112,7 +82,7 @@
       <div class="kpi-price">80.69 <span class="kpi-unit">₽/л</span></div>
       <div class="kpi-sub">по данным агрегаторов, 2 июля 2026</div>
     </a>
-    <a href="fuel/ai-100/index.html" class="card kpi-card">
+    <a href="fuel/ai-100/" class="card kpi-card">
       <div class="kpi-top">
         <span class="kpi-name">АИ-100</span>
         <span class="kpi-change up">+0.3% за неделю</span>
@@ -154,10 +124,6 @@
           <li><span>Алтайский край</span><b>58.72 ₽</b></li>
         </ul>
       </div>
-      <div class="card region-finder-card">
-        <h3>Все регионы</h3>
-        <p class="note">Цены по всем 85 регионам России и интерактивная карта появятся на отдельной странице /regions/.</p>
-      </div>
     </div>
   </section>
 
@@ -172,11 +138,11 @@
           <tr><th>Вид топлива</th><th>Цена, ₽/л</th><th>За неделю</th><th>За месяц</th></tr>
         </thead>
         <tbody>
-          <tr><td><a href="fuel/ai-92/index.html">АИ-92</a></td><td class="mono">68.76</td><td class="mono up">+0.4%</td><td class="mono up">+1.8%</td></tr>
-          <tr><td><a href="fuel/ai-95/index.html">АИ-95</a></td><td class="mono">74.38</td><td class="mono up">+0.5%</td><td class="mono up">+2.1%</td></tr>
-          <tr><td><a href="fuel/ai-98/index.html">АИ-98</a></td><td class="mono">93.56</td><td class="mono up">+0.3%</td><td class="mono up">+1.5%</td></tr>
-          <tr><td><a href="fuel/dt/index.html">ДТ</a></td><td class="mono">80.69</td><td class="mono up">+0.6%</td><td class="mono up">+2.4%</td></tr>
-          <tr><td><a href="fuel/ai-100/index.html">АИ-100</a></td><td class="mono">93.90</td><td class="mono up">+0.3%</td><td class="mono up">+1.4%</td></tr>
+          <tr><td><a href="fuel/ai-92/">АИ-92</a></td><td class="mono">68.76</td><td class="mono up">+0.4%</td><td class="mono up">+1.8%</td></tr>
+          <tr><td><a href="fuel/ai-95/">АИ-95</a></td><td class="mono">74.38</td><td class="mono up">+0.5%</td><td class="mono up">+2.1%</td></tr>
+          <tr><td><a href="fuel/ai-98/">АИ-98</a></td><td class="mono">93.56</td><td class="mono up">+0.3%</td><td class="mono up">+1.5%</td></tr>
+          <tr><td><a href="fuel/dt/">ДТ</a></td><td class="mono">80.69</td><td class="mono up">+0.6%</td><td class="mono up">+2.4%</td></tr>
+          <tr><td><a href="fuel/ai-100/">АИ-100</a></td><td class="mono">93.90</td><td class="mono up">+0.3%</td><td class="mono up">+1.4%</td></tr>
         </tbody>
       </table>
     </div>
@@ -197,35 +163,35 @@
       <h2>Цены на топливо по годам</h2>
     </div>
     <div class="internal-links">
-      <a href="history/2026/index.html">2026</a>
-      <a href="history/2025/index.html">2025</a>
-      <a href="history/2024/index.html">2024</a>
-      <a href="history/2023/index.html">2023</a>
-      <a href="history/2022/index.html">2022</a>
-      <a href="history/2021/index.html">2021</a>
-      <a href="history/2020/index.html">2020</a>
-      <a href="history/2019/index.html">2019</a>
-      <a href="history/2018/index.html">2018</a>
-      <a href="history/2017/index.html">2017</a>
-      <a href="history/2016/index.html">2016</a>
-      <a href="history/2015/index.html">2015</a>
-      <a href="history/2014/index.html">2014</a>
-      <a href="history/2013/index.html">2013</a>
-      <a href="history/2012/index.html">2012</a>
-      <a href="history/2011/index.html">2011</a>
-      <a href="history/2010/index.html">2010</a>
-      <a href="history/2009/index.html">2009</a>
-      <a href="history/2008/index.html">2008</a>
-      <a href="history/2007/index.html">2007</a>
-      <a href="history/2006/index.html">2006</a>
-      <a href="history/2005/index.html">2005</a>
-      <a href="history/2004/index.html">2004</a>
-      <a href="history/2003/index.html">2003</a>
-      <a href="history/2002/index.html">2002</a>
-      <a href="history/2001/index.html">2001</a>
-      <a href="history/2000/index.html">2000</a>
-      <a href="history/1999/index.html">1999</a>
-      <a href="history/1998/index.html">1998</a>
+      <a href="history/2026/">2026</a>
+      <a href="history/2025/">2025</a>
+      <a href="history/2024/">2024</a>
+      <a href="history/2023/">2023</a>
+      <a href="history/2022/">2022</a>
+      <a href="history/2021/">2021</a>
+      <a href="history/2020/">2020</a>
+      <a href="history/2019/">2019</a>
+      <a href="history/2018/">2018</a>
+      <a href="history/2017/">2017</a>
+      <a href="history/2016/">2016</a>
+      <a href="history/2015/">2015</a>
+      <a href="history/2014/">2014</a>
+      <a href="history/2013/">2013</a>
+      <a href="history/2012/">2012</a>
+      <a href="history/2011/">2011</a>
+      <a href="history/2010/">2010</a>
+      <a href="history/2009/">2009</a>
+      <a href="history/2008/">2008</a>
+      <a href="history/2007/">2007</a>
+      <a href="history/2006/">2006</a>
+      <a href="history/2005/">2005</a>
+      <a href="history/2004/">2004</a>
+      <a href="history/2003/">2003</a>
+      <a href="history/2002/">2002</a>
+      <a href="history/2001/">2001</a>
+      <a href="history/2000/">2000</a>
+      <a href="history/1999/">1999</a>
+      <a href="history/1998/">1998</a>
     </div>
   </section>
 
@@ -284,11 +250,11 @@
       <a href="#regions">Регионы</a>
       <a href="#compare">Сравнение</a>
       <a href="#history">История</a>
-      <a href="about/index.html">О сайте</a>
+      <a href="about/">О сайте</a>
     </div>
     <div class="footer-col">
       <h4>Инструменты</h4>
-      <a href="tools/calculator/index.html">Калькулятор расхода топлива</a>
+      <a href="tools/calculator/">Калькулятор расхода топлива</a>
     </div>
     <div class="footer-col">
       <h4>Источники</h4>
