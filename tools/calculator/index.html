@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор расхода топлива — расчёт стоимости поездки</title>
+<meta name="description" content="Рассчитайте расход и стоимость топлива на поездку. Актуальные цены бензина АИ-92, АИ-95, ДТ по регионам подставляются автоматически.">
+<link rel="canonical" href="https://toplivocena.ru/tools/calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Калькулятор расхода топлива — расчёт стоимости поездки">
+<meta property="og:description" content="Рассчитайте расход и стоимость топлива на поездку. Актуальные цены бензина АИ-92, АИ-95, ДТ по регионам подставляются автоматически.">
+<meta property="og:url" content="https://toplivocena.ru/tools/calculator/">
+<meta property="og:site_name" content="Toplivocena.ru">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Калькулятор расхода топлива — расчёт стоимости поездки">
+<meta name="twitter:description" content="Рассчитайте расход и стоимость топлива на поездку. Актуальные цены бензина АИ-92, АИ-95, ДТ по регионам подставляются автоматически.">
+
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../../index.html" class="logo">Toplivocena<span class="logo-dot">.ru</span></a>
+    <nav class="main-nav">
+      <a href="../../index.html#fuel">Виды топлива</a>
+      <a href="../../index.html#regions">Регионы</a>
+      <a href="../../index.html#compare">Сравнение</a>
+      <a href="../../index.html#history">История</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="wrap ticker-inner">
+    <span class="ticker-item"><span class="ticker-label">USD/RUB</span><span class="ticker-value">77.93 ₽</span></span>
+    <span class="ticker-item"><span class="ticker-label">Brent</span><span class="ticker-value">$70.93</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-92</span><span class="ticker-value">68.76 ₽/л</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-95</span><span class="ticker-value">74.38 ₽/л</span></span>
+    <span class="ticker-time">обновлено 2 июля 2026</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="breadcrumbs">
+    <a href="../../index.html">Главная</a><span class="sep">/</span>
+    <span>Инструменты</span><span class="sep">/</span>
+    <span>Калькулятор расхода топлива</span>
+  </div>
+
+  <section class="fuel-hero">
+    <h1>Калькулятор расхода и стоимости топлива</h1>
+    <p style="color:var(--slate-600); font-size:1rem; margin-top:12px; max-width:720px;">Посчитайте, во сколько обойдётся поездка, или узнайте фактический расход своей машины по чеку с заправки. Цена топлива подставляется автоматически из актуальных данных по региону — вводить её вручную не нужно.</p>
+  </section>
+
+  <section class="card">
+    <div class="calc-tabs">
+      <button class="calc-tab active" data-tab="cost">Стоимость поездки</button>
+      <button class="calc-tab" data-tab="actual">Мой расход</button>
+    </div>
+
+    <!-- Mode 1: Cost calculator -->
+    <div class="calc-grid" id="costMode">
+      <div class="calc-form">
+        <div class="calc-field">
+          <label for="distance">Расстояние, км</label>
+          <input type="text" inputmode="decimal" id="distance" placeholder="Например, 350">
+          <div class="calc-error-msg">Введите число больше 0</div>
+        </div>
+        <div class="calc-field">
+          <label for="consumption">Расход топлива, л/100 км</label>
+          <input type="text" inputmode="decimal" id="consumption" placeholder="Например, 8.5">
+          <div class="calc-hint">Средний расход: легковой — 8–10 л, внедорожник — 12–15 л, малолитражка — 5–7 л.</div>
+          <div class="calc-error-msg">Введите число больше 0</div>
+        </div>
+        <div class="calc-field">
+          <label for="fuelType">Вид топлива</label>
+          <select id="fuelType">
+            <option value="ai92">АИ-92</option>
+            <option value="ai95">АИ-95</option>
+            <option value="ai98">АИ-98</option>
+            <option value="dt">ДТ</option>
+            <option value="gas">Газ (пропан)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="region">Регион</label>
+          <select id="region"></select>
+        </div>
+        <div class="calc-actions">
+          <button class="btn-primary" id="calcCostBtn">Рассчитать</button>
+          <button class="btn-secondary" id="resetCostBtn">Сбросить</button>
+        </div>
+      </div>
+      <div class="calc-result" id="costResult">
+        <div class="calc-result-row">
+          <div class="calc-result-label">Необходимый объём топлива</div>
+          <div class="calc-result-value" id="resVolume">—</div>
+        </div>
+        <div class="calc-result-row">
+          <div class="calc-result-label">Стоимость поездки</div>
+          <div class="calc-result-value" id="resCost">—</div>
+        </div>
+        <div class="calc-result-row">
+          <div class="calc-result-label">Стоимость 1 км пути</div>
+          <div class="calc-result-value small" id="resPerKm">—</div>
+        </div>
+        <div class="calc-result-row">
+          <div class="calc-result-label">Цена за литр в расчёте</div>
+          <div class="calc-result-value small" id="resPricePerLiter">—</div>
+          <div class="calc-result-sub" id="resPriceSub">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mode 2: Actual consumption -->
+    <div class="calc-grid" id="actualMode" style="display:none;">
+      <div class="calc-form">
+        <div class="calc-field">
+          <label for="odometerDistance">Пройденное расстояние, км</label>
+          <input type="text" inputmode="decimal" id="odometerDistance" placeholder="Например, 420">
+          <div class="calc-error-msg">Введите число больше 0</div>
+        </div>
+        <div class="calc-field">
+          <label for="filledVolume">Объём заправленного топлива, л</label>
+          <input type="text" inputmode="decimal" id="filledVolume" placeholder="Например, 35">
+          <div class="calc-error-msg">Введите число больше 0</div>
+        </div>
+        <div class="calc-actions">
+          <button class="btn-primary" id="calcActualBtn">Рассчитать</button>
+          <button class="btn-secondary" id="resetActualBtn">Сбросить</button>
+        </div>
+      </div>
+      <div class="calc-result" id="actualResult">
+        <div class="calc-result-row">
+          <div class="calc-result-label">Фактический расход</div>
+          <div class="calc-result-value" id="resActual">—</div>
+        </div>
+        <div class="calc-result-row">
+          <div class="calc-result-label">Оценка</div>
+          <div id="resBadge">—</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card analytics-text">
+    <h2>От чего зависит расход топлива</h2>
+    <p>Реальный расход почти всегда отличается от паспортного, который производитель измеряет в идеальных лабораторных условиях. На дороге на расход влияют: стиль вождения (агрессивный разгон и торможение — до +20–30% к расходу), загрузка автомобиля (каждые 100 кг веса добавляют примерно 0,3–0,5 л/100 км), сезон (зимой расход выше на 10–20% из-за прогрева двигателя и работы печки), состояние дороги (пробки и городской цикл увеличивают расход в 1,5–2 раза по сравнению с трассой) и техническое состояние машины (низкое давление в шинах, старые свечи и забитый воздушный фильтр добавляют ещё 5–15%).</p>
+    <p>Посчитать фактический расход просто: разделите объём заправленного топлива на пройденное расстояние и умножьте на 100. Формула: <b>расход = (литры ÷ километры) × 100</b>. Например, если на 420 км ушло 35 литров: (35 ÷ 420) × 100 = 8,3 л/100 км.</p>
+    <p>Снизить расход помогают: плавный разгон без резких нажатий на педаль газа, поддержание давления в шинах по норме производителя, своевременная замена воздушного и топливного фильтров, отключение кондиционера на коротких городских поездках и снижение скорости на трассе — расход растёт нелинейно после 110–120 км/ч.</p>
+  </section>
+
+  <section class="card">
+    <div class="card-header">
+      <h2>Актуальные цены на топливо</h2>
+    </div>
+    <div class="internal-links">
+      <a href="../../fuel/ai-92/index.html">Цена АИ-92</a>
+      <a href="../../fuel/ai-95/index.html">Цена АИ-95</a>
+      <a href="../../fuel/ai-98/index.html">Цена АИ-98</a>
+      <a href="../../fuel/ai-100/index.html">Цена АИ-100</a>
+      <a href="../../fuel/dt/index.html">Цена ДТ</a>
+    </div>
+    <div class="card-header" style="margin-top:24px;">
+      <h2>Самые дешёвые регионы для заправки</h2>
+    </div>
+    <div class="internal-links">
+      <a href="../../index.html#regions">Челябинская область — 57.40 ₽</a>
+      <a href="../../index.html#regions">Курганская область — 57.43 ₽</a>
+      <a href="../../index.html#regions">Омская область — 57.77 ₽</a>
+      <a href="../../index.html#regions">Томская область — 57.95 ₽</a>
+      <a href="../../index.html#regions">Алтайский край — 58.72 ₽</a>
+    </div>
+  </section>
+
+  <section class="card faq-section">
+    <h2>Частые вопросы</h2>
+    <div class="faq-item">
+      <h3>Как узнать расход своего автомобиля?</h3>
+      <p>Заправьте полный бак, обнулите суточный пробег на одометре и проездите до следующей заправки. Разделите объём залитого топлива на пройденные километры и умножьте на 100 — получите реальный расход в л/100 км. Можно также воспользоваться режимом «Мой расход» в этом калькуляторе.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Почему реальный расход отличается от паспортного?</h3>
+      <p>Паспортный расход измеряется по стандартизированному циклу в лабораторных условиях без пробок, ветра, перепадов высот и с прогретым двигателем. В реальной эксплуатации на расход влияют город, пробки, зима, загрузка и стиль вождения — обычно реальный расход выше паспортного на 10–25%.</p>
+    </div>
+    <div class="faq-item">
+      <h3>На каком топливе дешевле ездить — АИ-92 или газ?</h3>
+      <p>Пропан стоит около 31 ₽/л против 68–69 ₽/л за АИ-92, но расход газа на 100 км обычно на 15–20% выше, чем бензина, из-за меньшей энергоёмкости. С учётом этого поездка на газе в среднем в 1,5–2 раза дешевле, чем на бензине.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Стоит ли переплачивать за АИ-95 вместо АИ-92?</h3>
+      <p>Если производитель прямо не требует АИ-95 (это указано в руководстве по эксплуатации), заметной выгоды в мощности или расходе не будет. Подробнее — на странице <a href="../../index.html#compare">сравнения видов топлива</a>.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Как снизить расход топлива?</h3>
+      <p>Плавно разгоняйтесь и тормозите заранее, следите за давлением в шинах, вовремя меняйте воздушный и топливный фильтры, не возите лишний груз и снижайте скорость на трассе — после 110–120 км/ч расход растёт особенно быстро из-за аэродинамического сопротивления.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Почему цена в калькуляторе отличается от цены на моей заправке?</h3>
+      <p>В расчёте используется средняя цена по выбранному региону. Конкретная АЗС может устанавливать цены выше или ниже средних — подробнее в разделе <a href="../../about/index.html">о сайте</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <div class="logo">Toplivocena<span class="logo-dot">.ru</span></div>
+      <p>Аналитика цен на топливо в России</p>
+    </div>
+    <div class="footer-col">
+      <h4>Разделы</h4>
+      <a href="../../index.html#fuel">Виды топлива</a>
+      <a href="../../index.html#regions">Регионы</a>
+      <a href="../../index.html#compare">Сравнение</a>
+      <a href="../../index.html#history">История</a>
+      <a href="../../about/index.html">О сайте</a>
+    </div>
+    <div class="footer-col">
+      <h4>Инструменты</h4>
+      <a href="index.html">Калькулятор расхода топлива</a>
+    </div>
+    <div class="footer-col">
+      <h4>Источники</h4>
+      <a href="https://rosstat.gov.ru" target="_blank" rel="noopener">Росстат</a>
+      <a href="https://www.spimex.com" target="_blank" rel="noopener">СПбМТСБ</a>
+      <a href="https://www.cbr.ru" target="_blank" rel="noopener">ЦБ РФ</a>
+    </div>
+  </div>
+  <div class="wrap copyright">© 2026 Toplivocena.ru</div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Калькулятор расхода топлива",
+  "url": "https://toplivocena.ru/tools/calculator/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "RUB"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Как узнать расход своего автомобиля?", "acceptedAnswer": {"@type": "Answer", "text": "Заправьте полный бак, обнулите суточный пробег и проездите до следующей заправки. Разделите литры на километры и умножьте на 100."}},
+    {"@type": "Question", "name": "Почему реальный расход отличается от паспортного?", "acceptedAnswer": {"@type": "Answer", "text": "Паспортный расход измеряется в лабораторных условиях без пробок и перепадов температур, реальный расход обычно выше на 10-25%."}},
+    {"@type": "Question", "name": "На каком топливе дешевле ездить — АИ-92 или газ?", "acceptedAnswer": {"@type": "Answer", "text": "Газ дешевле бензина примерно в 2 раза за литр, но расход на газе выше на 15-20%, поэтому поездка на газе в среднем в 1,5-2 раза дешевле."}}
+  ]
+}
+</script>
+
+<script>
+// Псевдо-БД цен по регионам и видам топлива (в реальном проекте — запрос к API)
+const REGION_PRICES = {
+  "russia_avg": { name: "Россия (средняя)", ai92: 68.76, ai95: 74.38, ai98: 93.56, dt: 80.69, gas: 31.00 },
+  "moscow": { name: "Москва", ai92: 67.37, ai95: 74.25, ai98: 91.68, dt: 79.06, gas: 31.50 },
+  "spb": { name: "Санкт-Петербург", ai92: 64.14, ai95: 68.87, ai98: 87.27, dt: 75.25, gas: 30.20 },
+  "chelyabinsk": { name: "Челябинская область", ai92: 57.40, ai95: 62.10, ai98: 78.11, dt: 67.36, gas: 28.50 },
+  "kurgan": { name: "Курганская область", ai92: 57.43, ai95: 62.30, ai98: 78.15, dt: 67.40, gas: 28.60 },
+  "omsk": { name: "Омская область", ai92: 57.77, ai95: 62.50, ai98: 78.61, dt: 67.79, gas: 28.70 },
+  "tomsk": { name: "Томская область", ai92: 57.95, ai95: 62.80, ai98: 78.86, dt: 68.00, gas: 28.80 },
+  "altai": { name: "Алтайский край", ai92: 58.72, ai95: 63.20, ai98: 79.90, dt: 68.90, gas: 29.00 },
+  "sverdlovsk": { name: "Свердловская область", ai92: 61.20, ai95: 66.40, ai98: 83.30, dt: 71.83, gas: 29.50 },
+  "krasnodar": { name: "Краснодарский край", ai92: 63.80, ai95: 68.90, ai98: 86.81, dt: 74.87, gas: 30.50 },
+  "chukotka": { name: "Чукотский АО", ai92: 77.65, ai95: 82.30, ai98: 105.68, dt: 91.13, gas: 36.00 },
+  "sakha": { name: "Республика Саха (Якутия)", ai92: 78.89, ai95: 83.60, ai98: 107.36, dt: 92.58, gas: 36.50 },
+  "magadan": { name: "Магаданская область", ai92: 80.50, ai95: 85.20, ai98: 109.55, dt: 94.47, gas: 37.20 },
+  "sakhalin": { name: "Сахалинская область", ai92: 80.53, ai95: 85.40, ai98: 109.59, dt: 94.51, gas: 37.30 },
+  "kamchatka": { name: "Камчатский край", ai92: 83.42, ai95: 88.10, ai98: 113.53, dt: 97.90, gas: 38.00 }
+};
+
+const FUEL_LABELS = { ai92: "АИ-92", ai95: "АИ-95", ai98: "АИ-98", dt: "ДТ", gas: "Газ (пропан)" };
+const FUEL_SLUGS = { ai92: "ai-92", ai95: "ai-95", ai98: "ai-98", dt: "dt", gas: null };
+
+const regionSelect = document.getElementById('region');
+Object.keys(REGION_PRICES).forEach(key => {
+  const opt = document.createElement('option');
+  opt.value = key;
+  opt.textContent = REGION_PRICES[key].name;
+  regionSelect.appendChild(opt);
+});
+regionSelect.value = 'russia_avg'; // default: no IP detection on static site
+
+// Tabs
+document.querySelectorAll('.calc-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const mode = tab.dataset.tab;
+    document.getElementById('costMode').style.display = mode === 'cost' ? 'grid' : 'none';
+    document.getElementById('actualMode').style.display = mode === 'actual' ? 'grid' : 'none';
+  });
+});
+
+function parseNum(str) {
+  if (!str) return NaN;
+  return parseFloat(str.replace(',', '.'));
+}
+
+function validateField(input, value) {
+  const field = input.closest('.calc-field');
+  const valid = !isNaN(value) && value > 0;
+  field.classList.toggle('error', !valid);
+  return valid;
+}
+
+function calcCost() {
+  const distanceInput = document.getElementById('distance');
+  const consumptionInput = document.getElementById('consumption');
+  const distance = parseNum(distanceInput.value);
+  const consumption = parseNum(consumptionInput.value);
+  const validDistance = validateField(distanceInput, distance);
+  const validConsumption = validateField(consumptionInput, consumption);
+  if (!validDistance || !validConsumption) {
+    document.getElementById('resVolume').textContent = '—';
+    document.getElementById('resCost').textContent = '—';
+    document.getElementById('resPerKm').textContent = '—';
+    document.getElementById('resPricePerLiter').textContent = '—';
+    document.getElementById('resPriceSub').textContent = '—';
+    return;
+  }
+  const fuel = document.getElementById('fuelType').value;
+  const region = document.getElementById('region').value;
+  const price = REGION_PRICES[region][fuel];
+  const volume = (distance * consumption) / 100;
+  const cost = volume * price;
+  const perKm = cost / distance;
+
+  document.getElementById('resVolume').textContent = volume.toFixed(1) + ' л';
+  document.getElementById('resCost').textContent = cost.toFixed(0) + ' ₽';
+  document.getElementById('resPerKm').textContent = perKm.toFixed(2) + ' ₽/км';
+  document.getElementById('resPricePerLiter').textContent = price.toFixed(2) + ' ₽/л';
+  document.getElementById('resPriceSub').textContent = `${FUEL_LABELS[fuel]}, ${REGION_PRICES[region].name}, на 2 июля 2026`;
+}
+
+document.getElementById('calcCostBtn').addEventListener('click', calcCost);
+document.getElementById('resetCostBtn').addEventListener('click', () => {
+  document.getElementById('distance').value = '';
+  document.getElementById('consumption').value = '';
+  document.querySelectorAll('#costMode .calc-field').forEach(f => f.classList.remove('error'));
+  calcCost();
+});
+
+function calcActual() {
+  const distanceInput = document.getElementById('odometerDistance');
+  const volumeInput = document.getElementById('filledVolume');
+  const distance = parseNum(distanceInput.value);
+  const volume = parseNum(volumeInput.value);
+  const validDistance = validateField(distanceInput, distance);
+  const validVolume = validateField(volumeInput, volume);
+  const badgeEl = document.getElementById('resBadge');
+  if (!validDistance || !validVolume) {
+    document.getElementById('resActual').textContent = '—';
+    badgeEl.innerHTML = '—';
+    return;
+  }
+  const consumption = (volume / distance) * 100;
+  document.getElementById('resActual').textContent = consumption.toFixed(1) + ' л/100 км';
+
+  let cls, label;
+  if (consumption < 7) { cls = 'eco'; label = 'Экономичный'; }
+  else if (consumption < 10) { cls = 'avg'; label = 'Средний'; }
+  else if (consumption < 14) { cls = 'high'; label = 'Повышенный'; }
+  else { cls = 'veryhigh'; label = 'Высокий'; }
+  badgeEl.innerHTML = `<span class="consumption-badge ${cls}">${label}</span>`;
+}
+
+document.getElementById('calcActualBtn').addEventListener('click', calcActual);
+document.getElementById('resetActualBtn').addEventListener('click', () => {
+  document.getElementById('odometerDistance').value = '';
+  document.getElementById('filledVolume').value = '';
+  document.querySelectorAll('#actualMode .calc-field').forEach(f => f.classList.remove('error'));
+  calcActual();
+});
+</script>
+
+</body>
+</html>

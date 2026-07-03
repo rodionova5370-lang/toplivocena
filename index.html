@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Цена топлива в России сегодня — АИ-92, АИ-95, ДТ</title>
+<meta name="description" content="Актуальные цены на бензин АИ-92, АИ-95, АИ-98 и дизельное топливо в России. Динамика цен, сравнение по регионам, история с 1991 года.">
+<link rel="canonical" href="https://toplivocena.ru/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Цена топлива в России сегодня — АИ-92, АИ-95, ДТ">
+<meta property="og:description" content="Актуальные цены на бензин АИ-92, АИ-95, АИ-98 и дизельное топливо в России. Динамика цен, сравнение по регионам, история с 1991 года.">
+<meta property="og:url" content="https://toplivocena.ru/">
+<meta property="og:site_name" content="Toplivocena.ru">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Цена топлива в России сегодня — АИ-92, АИ-95, ДТ">
+<meta name="twitter:description" content="Актуальные цены на бензин АИ-92, АИ-95, АИ-98 и дизельное топливо в России. Динамика цен, сравнение по регионам, история с 1991 года.">
+
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="logo">Toplivocena<span class="logo-dot">.ru</span></a>
+    <nav class="main-nav">
+      <a href="#fuel">Виды топлива</a>
+      <a href="#regions">Регионы</a>
+      <a href="#compare">Сравнение</a>
+      <a href="#history">История</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Live ticker -->
+<div class="ticker">
+  <div class="wrap ticker-inner">
+    <span class="ticker-item"><span class="ticker-label">USD/RUB</span><span class="ticker-value">77.93 ₽</span></span>
+    <span class="ticker-item"><span class="ticker-label">Brent</span><span class="ticker-value">$70.93</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-92</span><span class="ticker-value">68.76 ₽/л</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-95</span><span class="ticker-value">74.38 ₽/л</span></span>
+    <span class="ticker-time">обновлено 2 июля 2026</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- Filters -->
+  <section class="filters">
+    <div class="filter-group">
+      <label>Вид топлива</label>
+      <select id="fuelFilter">
+        <option>АИ-92</option>
+        <option>АИ-95</option>
+        <option>АИ-98</option>
+        <option>АИ-100</option>
+        <option>ДТ</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Период</label>
+      <select id="periodFilter">
+        <option>Неделя</option>
+        <option selected>Месяц</option>
+        <option>Год</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Регион</label>
+      <select id="regionFilter">
+        <option>Вся Россия</option>
+        <option>Москва</option>
+        <option>Санкт-Петербург</option>
+        <option>Челябинская область</option>
+        <option>Камчатский край</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- KPI cards -->
+  <section class="kpi-grid" id="fuel">
+    <a href="fuel/ai-92/index.html" class="card kpi-card">
+      <div class="kpi-top">
+        <span class="kpi-name">АИ-92</span>
+        <span class="kpi-change up">+0.4% за неделю</span>
+      </div>
+      <div class="kpi-price">68.76 <span class="kpi-unit">₽/л</span></div>
+      <div class="kpi-sub">+1.8% за месяц · Росстат, 22–29 июня 2026</div>
+    </a>
+    <a href="fuel/ai-95/index.html" class="card kpi-card">
+      <div class="kpi-top">
+        <span class="kpi-name">АИ-95</span>
+        <span class="kpi-change up">+0.5% за неделю</span>
+      </div>
+      <div class="kpi-price">74.38 <span class="kpi-unit">₽/л</span></div>
+      <div class="kpi-sub">+2.1% за месяц · Росстат, 22–29 июня 2026</div>
+    </a>
+    <a href="fuel/ai-98/index.html" class="card kpi-card">
+      <div class="kpi-top">
+        <span class="kpi-name">АИ-98</span>
+        <span class="kpi-change up">+0.3% за неделю</span>
+      </div>
+      <div class="kpi-price">93.56 <span class="kpi-unit">₽/л</span></div>
+      <div class="kpi-sub">по данным агрегаторов, 2 июля 2026</div>
+    </a>
+    <a href="fuel/dt/index.html" class="card kpi-card">
+      <div class="kpi-top">
+        <span class="kpi-name">ДТ</span>
+        <span class="kpi-change up">+0.6% за неделю</span>
+      </div>
+      <div class="kpi-price">80.69 <span class="kpi-unit">₽/л</span></div>
+      <div class="kpi-sub">по данным агрегаторов, 2 июля 2026</div>
+    </a>
+    <a href="fuel/ai-100/index.html" class="card kpi-card">
+      <div class="kpi-top">
+        <span class="kpi-name">АИ-100</span>
+        <span class="kpi-change up">+0.3% за неделю</span>
+      </div>
+      <div class="kpi-price">93.90 <span class="kpi-unit">₽/л</span></div>
+      <div class="kpi-sub">по данным агрегаторов, 2 июля 2026</div>
+    </a>
+  </section>
+
+  <!-- Dynamics chart -->
+  <section class="card chart-card">
+    <div class="card-header">
+      <h2>Динамика цен за 12 месяцев</h2>
+    </div>
+    <canvas id="dynamicsChart" height="90"></canvas>
+  </section>
+
+  <!-- Regional analysis -->
+  <section class="regions-section" id="regions">
+    <h2>Региональный анализ</h2>
+    <div class="regions-grid">
+      <div class="card region-list-card">
+        <h3>Топ-5 дорогих регионов (АИ-92)</h3>
+        <ul class="region-list">
+          <li><span>Камчатский край</span><b>83.42 ₽</b></li>
+          <li><span>Сахалинская область</span><b>80.53 ₽</b></li>
+          <li><span>Магаданская область</span><b>80.50 ₽</b></li>
+          <li><span>Республика Саха (Якутия)</span><b>78.89 ₽</b></li>
+          <li><span>Чукотский АО</span><b>77.65 ₽</b></li>
+        </ul>
+      </div>
+      <div class="card region-list-card">
+        <h3>Топ-5 дешёвых регионов (АИ-92)</h3>
+        <ul class="region-list cheap">
+          <li><span>Челябинская область</span><b>57.40 ₽</b></li>
+          <li><span>Курганская область</span><b>57.43 ₽</b></li>
+          <li><span>Омская область</span><b>57.77 ₽</b></li>
+          <li><span>Томская область</span><b>57.95 ₽</b></li>
+          <li><span>Алтайский край</span><b>58.72 ₽</b></li>
+        </ul>
+      </div>
+      <div class="card region-finder-card">
+        <h3>Все регионы</h3>
+        <p class="note">Цены по всем 85 регионам России и интерактивная карта появятся на отдельной странице /regions/.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison table -->
+  <section class="card compare-card" id="compare">
+    <div class="card-header">
+      <h2>Сравнение видов топлива</h2>
+    </div>
+    <div class="table-scroll">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Вид топлива</th><th>Цена, ₽/л</th><th>За неделю</th><th>За месяц</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="fuel/ai-92/index.html">АИ-92</a></td><td class="mono">68.76</td><td class="mono up">+0.4%</td><td class="mono up">+1.8%</td></tr>
+          <tr><td><a href="fuel/ai-95/index.html">АИ-95</a></td><td class="mono">74.38</td><td class="mono up">+0.5%</td><td class="mono up">+2.1%</td></tr>
+          <tr><td><a href="fuel/ai-98/index.html">АИ-98</a></td><td class="mono">93.56</td><td class="mono up">+0.3%</td><td class="mono up">+1.5%</td></tr>
+          <tr><td><a href="fuel/dt/index.html">ДТ</a></td><td class="mono">80.69</td><td class="mono up">+0.6%</td><td class="mono up">+2.4%</td></tr>
+          <tr><td><a href="fuel/ai-100/index.html">АИ-100</a></td><td class="mono">93.90</td><td class="mono up">+0.3%</td><td class="mono up">+1.4%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Historical chart -->
+  <section class="card chart-card">
+    <div class="card-header">
+      <h2>Историческая динамика цен, 1991–2026</h2>
+    </div>
+    <canvas id="historyChart" height="90"></canvas>
+    <p class="note">Ориентировочные средние цены АИ-92/АИ-93 по годам, ₽/л (после деноминации 1998 года). Данные — обобщение открытых источников.</p>
+  </section>
+
+  <!-- History year links -->
+  <section class="card" id="history">
+    <div class="card-header">
+      <h2>Цены на топливо по годам</h2>
+    </div>
+    <div class="internal-links">
+      <a href="history/2026/index.html">2026</a>
+      <a href="history/2025/index.html">2025</a>
+      <a href="history/2024/index.html">2024</a>
+      <a href="history/2023/index.html">2023</a>
+      <a href="history/2022/index.html">2022</a>
+      <a href="history/2021/index.html">2021</a>
+      <a href="history/2020/index.html">2020</a>
+      <a href="history/2019/index.html">2019</a>
+      <a href="history/2018/index.html">2018</a>
+      <a href="history/2017/index.html">2017</a>
+      <a href="history/2016/index.html">2016</a>
+      <a href="history/2015/index.html">2015</a>
+      <a href="history/2014/index.html">2014</a>
+      <a href="history/2013/index.html">2013</a>
+      <a href="history/2012/index.html">2012</a>
+      <a href="history/2011/index.html">2011</a>
+      <a href="history/2010/index.html">2010</a>
+      <a href="history/2009/index.html">2009</a>
+      <a href="history/2008/index.html">2008</a>
+      <a href="history/2007/index.html">2007</a>
+      <a href="history/2006/index.html">2006</a>
+      <a href="history/2005/index.html">2005</a>
+      <a href="history/2004/index.html">2004</a>
+      <a href="history/2003/index.html">2003</a>
+      <a href="history/2002/index.html">2002</a>
+      <a href="history/2001/index.html">2001</a>
+      <a href="history/2000/index.html">2000</a>
+      <a href="history/1999/index.html">1999</a>
+      <a href="history/1998/index.html">1998</a>
+    </div>
+  </section>
+
+  <!-- Analytical text -->
+  <section class="card analytics-text">
+    <h2>Что происходит с ценами на топливо в России</h2>
+    <p>По данным Росстата, на неделе с 22 по 29 июня 2026 года средняя потребительская цена бензина АИ-92 в России составила 68,76 ₽ за литр, АИ-95 — 74,38 ₽ за литр. Рост цен зафиксирован в большинстве регионов страны, при этом разница в темпах подорожания между марками бензина практически не наблюдается.</p>
+    <p>Разброс цен между регионами остаётся значительным — почти в полтора раза. Дешевле всего бензин АИ-92 продаётся в Челябинской (57,40 ₽), Курганской (57,43 ₽) и Омской (57,77 ₽) областях — это регионы с развитой нефтепереработкой и минимальным транспортным плечом. Дороже всего — в Камчатском крае (83,42 ₽), Сахалинской (80,53 ₽) и Магаданской (80,50 ₽) областях, что аналитики связывают с высокими затратами на логистику и завоз топлива на Дальний Восток.</p>
+    <p>Дополнительное давление на розничные цены оказывает динамика курса рубля и стоимости нефти: на 2 июля 2026 года курс доллара ЦБ РФ составил 77,93 ₽, а нефть марки Brent торговалась на уровне 70,93 $ за баррель — вблизи минимумов с конца февраля на фоне роста поставок через Ормузский пролив. Дизельное топливо продолжает дорожать быстрее бензина: по итогам месяца рост цен на ДТ составил около 2,4%.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="card faq-section">
+    <h2>Частые вопросы</h2>
+    <div class="faq-item">
+      <h3>Сколько стоит бензин в России сегодня?</h3>
+      <p>По данным Росстата, на конец июня 2026 года средняя цена АИ-92 — 68,76 ₽/л, АИ-95 — 74,38 ₽/л. Цена АИ-98 — около 93,56 ₽/л, дизельного топлива — около 80,69 ₽/л.</p>
+    </div>
+    <div class="faq-item">
+      <h3>В каком регионе России самый дешёвый бензин?</h3>
+      <p>По данным на май 2026 года, самый доступный бензин АИ-92 — в Челябинской области (57,40 ₽/л), Курганской области (57,43 ₽/л) и Омской области (57,77 ₽/л).</p>
+    </div>
+    <div class="faq-item">
+      <h3>Где в России самый дорогой бензин?</h3>
+      <p>Дороже всего топливо на Дальнем Востоке: Камчатский край (83,42 ₽/л), Сахалинская область (80,53 ₽/л) и Магаданская область (80,50 ₽/л) — из-за высоких затрат на транспортировку.</p>
+    </div>
+    <div class="faq-item">
+      <h3>В чём разница между АИ-92 и АИ-95?</h3>
+      <p>Октановое число АИ-95 выше, что означает большую устойчивость к детонации при сжатии. Разница в цене между марками в среднем составляет 5–7 ₽ за литр.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Почему цены на бензин отличаются в разных регионах?</h3>
+      <p>На розничную цену влияют удалённость от НПЗ, транспортные издержки, региональные налоги и уровень конкуренции среди АЗС. Дальневосточные регионы традиционно дороже из-за логистики.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Чем АИ-100 отличается от АИ-95 и стоит ли переплачивать?</h3>
+      <p>АИ-100 — премиальный бензин с самым высоким октановым числом, около 93,90 ₽/л. Разница с АИ-95 — порядка 20 ₽/л. Для большинства автомобилей ощутимой выгоды в мощности или расходе он не даёт — АИ-100 в основном рекомендован для двигателей, требующих топлива с повышенной детонационной стойкостью.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Как часто обновляются данные о ценах?</h3>
+      <p>Росстат публикует официальную статистику еженедельно и ежемесячно. Биржевые котировки СПбМТСБ и курс ЦБ РФ обновляются ежедневно.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <div class="logo">Toplivocena<span class="logo-dot">.ru</span></div>
+      <p>Аналитика цен на топливо в России</p>
+    </div>
+    <div class="footer-col">
+      <h4>Разделы</h4>
+      <a href="#fuel">Виды топлива</a>
+      <a href="#regions">Регионы</a>
+      <a href="#compare">Сравнение</a>
+      <a href="#history">История</a>
+      <a href="about/index.html">О сайте</a>
+    </div>
+    <div class="footer-col">
+      <h4>Инструменты</h4>
+      <a href="tools/calculator/index.html">Калькулятор расхода топлива</a>
+    </div>
+    <div class="footer-col">
+      <h4>Источники</h4>
+      <a href="https://rosstat.gov.ru" target="_blank" rel="noopener">Росстат</a>
+      <a href="https://www.spimex.com" target="_blank" rel="noopener">СПбМТСБ</a>
+      <a href="https://www.cbr.ru" target="_blank" rel="noopener">ЦБ РФ</a>
+    </div>
+  </div>
+  <div class="wrap copyright">© 2026 Toplivocena.ru</div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Toplivocena.ru",
+  "url": "https://toplivocena.ru",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://toplivocena.ru/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Сколько стоит бензин в России сегодня?", "acceptedAnswer": {"@type": "Answer", "text": "По данным Росстата, на конец июня 2026 года средняя цена АИ-92 — 68,76 ₽/л, АИ-95 — 74,38 ₽/л."}},
+    {"@type": "Question", "name": "В каком регионе России самый дешёвый бензин?", "acceptedAnswer": {"@type": "Answer", "text": "Самый доступный бензин АИ-92 — в Челябинской, Курганской и Омской областях."}},
+    {"@type": "Question", "name": "Где в России самый дорогой бензин?", "acceptedAnswer": {"@type": "Answer", "text": "Дороже всего топливо на Дальнем Востоке: Камчатский край, Сахалинская и Магаданская области."}}
+  ]
+}
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

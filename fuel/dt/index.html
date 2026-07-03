@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Цена ДТ сегодня</title>
+<meta name="description" content="Текущая цена ДТ сегодня: 80.69 ₽/л. Динамика, сравнение с другими видами топлива, история цен по годам, цены по регионам.">
+<link rel="canonical" href="https://toplivocena.ru/fuel/dt/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Цена ДТ сегодня">
+<meta property="og:description" content="Текущая цена ДТ сегодня: 80.69 ₽/л. Динамика, сравнение с другими видами топлива, история цен по годам, цены по регионам.">
+<meta property="og:url" content="https://toplivocena.ru/fuel/dt/">
+<meta property="og:site_name" content="Toplivocena.ru">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Цена ДТ сегодня">
+<meta name="twitter:description" content="Текущая цена ДТ сегодня: 80.69 ₽/л. Динамика, сравнение с другими видами топлива, история цен по годам, цены по регионам.">
+
+<link rel="stylesheet" href="../../style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../../index.html" class="logo">Toplivocena<span class="logo-dot">.ru</span></a>
+    <nav class="main-nav">
+      <a href="../../index.html#fuel">Виды топлива</a>
+      <a href="../../index.html#regions">Регионы</a>
+      <a href="../../index.html#compare">Сравнение</a>
+      <a href="../../index.html#history">История</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="wrap ticker-inner">
+    <span class="ticker-item"><span class="ticker-label">USD/RUB</span><span class="ticker-value">77.93 ₽</span></span>
+    <span class="ticker-item"><span class="ticker-label">Brent</span><span class="ticker-value">$70.93</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-92</span><span class="ticker-value">68.76 ₽/л</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-95</span><span class="ticker-value">74.38 ₽/л</span></span>
+    <span class="ticker-time">обновлено 2 июля 2026</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="breadcrumbs">
+    <a href="../../index.html">Главная</a><span class="sep">/</span>
+    <a href="../../index.html#fuel">Виды топлива</a><span class="sep">/</span>
+    <span>ДТ</span>
+  </div>
+
+  <section class="fuel-hero">
+    <h1>Цена бензина ДТ сегодня</h1>
+    <div class="updated">Обновлено: <span id="updatedDate"></span> · источник: Росстат, СПбМТСБ</div>
+    <div class="card fuel-stat-row">
+      <div class="fuel-stat">
+        <div class="label">Текущая цена</div>
+        <div class="value big">80.69 ₽/л</div>
+      </div>
+      <div class="fuel-stat">
+        <div class="label">За неделю</div>
+        <div class="value up">+0.6%</div>
+      </div>
+      <div class="fuel-stat">
+        <div class="label">За месяц</div>
+        <div class="value up">+2.4%</div>
+      </div>
+      <div class="fuel-stat">
+        <div class="label">За год</div>
+        <div class="value up">+14.5%</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card chart-card">
+    <div class="card-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <h2>Динамика цены ДТ</h2>
+      <div class="period-switch" id="periodSwitch">
+        <button data-period="6m" class="active">6 месяцев</button>
+        <button data-period="1y">1 год</button>
+        <button data-period="5y">5 лет</button>
+      </div>
+    </div>
+    <canvas id="fuelChart" height="90"></canvas>
+  </section>
+
+  <section class="card compare-card">
+    <div class="card-header">
+      <h2>Цена ДТ по регионам</h2>
+    </div>
+    <div class="table-scroll">
+      <table class="compare-table region-table" id="regionTable">
+        <thead>
+          <tr>
+            <th data-sort="name">Регион ▾</th>
+            <th data-sort="price">Цена ДТ, ₽/л ▾</th>
+            <th data-sort="delta">Отклонение от среднего ▾</th>
+          </tr>
+        </thead>
+        <tbody id="regionTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card compare-card">
+    <div class="card-header">
+      <h2>Сравнение с другими видами топлива</h2>
+    </div>
+    <canvas id="miniCompareChart" height="70"></canvas>
+  </section>
+
+  <section class="card compare-card">
+    <div class="card-header">
+      <h2>Цена ДТ по годам</h2>
+    </div>
+    <div class="table-scroll">
+      <table class="compare-table">
+        <thead><tr><th>Год</th><th>Средняя цена, ₽/л</th></tr></thead>
+        <tbody>
+          <tr><td>2018</td><td class="mono">49.40</td></tr>
+          <tr><td>2020</td><td class="mono">53.75</td></tr>
+          <tr><td>2022</td><td class="mono">61.37</td></tr>
+          <tr><td>2024</td><td class="mono">69.12</td></tr>
+          <tr><td>2025</td><td class="mono">74.87</td></tr>
+          <tr><td>2026</td><td class="mono">80.69</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card analytics-text">
+    <h2>Что влияет на цену дизельного топлива</h2>
+    <p>Дизельное топливо (ДТ) — основное топливо для грузового транспорта, автобусов и части легковых автомобилей. По данным агрегаторов, на 2 июля 2026 года цена ДТ в России составляет 80,69 ₽ за литр — рост на 0,6% за неделю и 2,4% за месяц, самый быстрый темп среди всех видов топлива.</p>
+    <p>Ускоренный рост цен на ДТ в 2026 году аналитики связывают с сезонным повышением спроса со стороны сельского хозяйства и грузоперевозок, а также с экспортными ограничениями на дизель. По итогам года цена может вырасти более чем на 14% — это заметно выше, чем у бензина.</p>
+    <p>Как и на бензин, на цену ДТ влияют курс доллара к рублю (77,93 ₽), стоимость нефти Brent (70,93 $/барр.) и региональные логистические издержки. Разброс цен на дизель между регионами так же велик, как и у бензина — от относительно недорогих регионов Сибири до дорогих территорий Дальнего Востока.</p>
+  </section>
+
+  <section class="card">
+    <div class="card-header">
+      <h2>Другие виды топлива</h2>
+    </div>
+    <div class="fuel-nav-links">
+      <a href="../ai-92/index.html">АИ-92</a>
+      <a href="../ai-95/index.html">АИ-95</a>
+      <a href="../ai-98/index.html">АИ-98</a>
+      <a href="../ai-100/index.html">АИ-100</a>
+      <a href="../dt/index.html" class="current">ДТ</a>
+    </div>
+    <div class="card-header" style="margin-top:24px;">
+      <h2>Смотрите также</h2>
+    </div>
+    <div class="internal-links">
+      <a href="../../index.html#regions">Цены по регионам России</a>
+      <a href="../../index.html#compare">Сравнение видов топлива</a>
+      <a href="../../history/2026/index.html">История цен на топливо</a>
+      <a href="../../tools/calculator/index.html">Калькулятор расхода топлива</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <div class="logo">Toplivocena<span class="logo-dot">.ru</span></div>
+      <p>Аналитика цен на топливо в России</p>
+    </div>
+    <div class="footer-col">
+      <h4>Разделы</h4>
+      <a href="../../index.html#fuel">Виды топлива</a>
+      <a href="../../index.html#regions">Регионы</a>
+      <a href="../../index.html#compare">Сравнение</a>
+      <a href="../../index.html#history">История</a>
+      <a href="../../about/index.html">О сайте</a>
+    </div>
+    <div class="footer-col">
+      <h4>Инструменты</h4>
+      <a href="../../tools/calculator/index.html">Калькулятор расхода топлива</a>
+    </div>
+    <div class="footer-col">
+      <h4>Источники</h4>
+      <a href="https://rosstat.gov.ru" target="_blank" rel="noopener">Росстат</a>
+      <a href="https://www.spimex.com" target="_blank" rel="noopener">СПбМТСБ</a>
+      <a href="https://www.cbr.ru" target="_blank" rel="noopener">ЦБ РФ</a>
+    </div>
+  </div>
+  <div class="wrap copyright">© 2026 Toplivocena.ru</div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Цена бензина ДТ сегодня",
+  "url": "https://toplivocena.ru/fuel/dt/",
+  "dateModified": "2026-07-03",
+  "mainEntity": {
+    "@type": "Dataset",
+    "name": "Цены на ДТ по регионам России",
+    "description": "Набор данных о розничных ценах на ДТ в регионах России, обновляется еженедельно на основе данных Росстата.",
+    "temporalCoverage": "2026-07-03"
+  }
+}
+</script>
+
+<script>
+document.getElementById('updatedDate').textContent = new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const regions = [
+  { name: 'Челябинская область', price: 67.36 },
+  { name: 'Курганская область', price: 67.39 },
+  { name: 'Омская область', price: 67.79 },
+  { name: 'Томская область', price: 68.0 },
+  { name: 'Алтайский край', price: 68.91 },
+  { name: 'Свердловская область', price: 71.82 },
+  { name: 'Краснодарский край', price: 74.87 },
+  { name: 'Санкт-Петербург', price: 75.27 },
+  { name: 'Москва', price: 79.06 },
+  { name: 'Чукотский АО', price: 91.12 },
+  { name: 'Республика Саха (Якутия)', price: 92.58 },
+  { name: 'Магаданская область', price: 94.47 },
+  { name: 'Сахалинская область', price: 94.5 },
+  { name: 'Камчатский край', price: 97.89 }
+];
+const nationalAvg = 80.69;
+
+let sortKey = 'price';
+let sortDir = 1;
+
+function renderTable() {
+  const tbody = document.getElementById('regionTableBody');
+  tbody.innerHTML = '';
+  let list = regions.slice();
+  list.sort((a, b) => {
+    if (sortKey === 'name') return a.name.localeCompare(b.name) * sortDir;
+    if (sortKey === 'delta') return ((a.price - nationalAvg) - (b.price - nationalAvg)) * sortDir;
+    return (a.price - b.price) * sortDir;
+  });
+  list.forEach(r => {
+    const delta = r.price - nationalAvg;
+    const deltaStr = (delta >= 0 ? '+' : '') + delta.toFixed(2) + ' ₽';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r.name}</td><td class="mono">${r.price.toFixed(2)}</td><td class="mono ${delta >= 0 ? 'up' : 'down'}">${deltaStr}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+renderTable();
+
+document.querySelectorAll('#regionTable th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const key = th.dataset.sort;
+    sortDir = (sortKey === key) ? -sortDir : 1;
+    sortKey = key;
+    renderTable();
+  });
+});
+
+const monthly = {
+  labels: ['Июл 25', 'Авг 25', 'Сен 25', 'Окт 25', 'Ноя 25', 'Дек 25', 'Янв 26', 'Фев 26', 'Мар 26', 'Апр 26', 'Май 26', 'Июн 26'],
+  data: [71.82, 72.52, 73.11, 73.81, 74.4, 74.99, 75.69, 76.39, 77.22, 78.16, 79.21, 80.69]
+};
+const yearly5 = {
+  labels: ['2022', '2023', '2024', '2025', '2026'],
+  data: [61.37, 65.13, 69.12, 74.87, 80.69]
+};
+
+const ctx = document.getElementById('fuelChart');
+let fuelChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: monthly.labels.slice(6),
+    datasets: [{ label: 'ДТ, ₽/л', data: monthly.data.slice(6), borderColor: '#475569', backgroundColor: 'rgba(71,85,105,0.06)', fill: true, tension: 0.3 }]
+  },
+  options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { ticks: { callback: v => v + ' ₽' } } } }
+});
+
+document.querySelectorAll('#periodSwitch button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#periodSwitch button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const period = btn.dataset.period;
+    let labels, data;
+    if (period === '6m') { labels = monthly.labels.slice(6); data = monthly.data.slice(6); }
+    else if (period === '1y') { labels = monthly.labels; data = monthly.data; }
+    else { labels = yearly5.labels; data = yearly5.data; }
+    fuelChart.data.labels = labels;
+    fuelChart.data.datasets[0].data = data;
+    fuelChart.update();
+  });
+});
+
+new Chart(document.getElementById('miniCompareChart'), {
+  type: 'bar',
+  data: {
+    labels: ['АИ-92', 'АИ-95', 'АИ-98', 'АИ-100', 'ДТ'],
+    datasets: [{
+      data: [68.76, 74.38, 93.56, 93.9, 80.69],
+      backgroundColor: ['#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#0f172a'],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: { x: { ticks: { callback: v => v + ' ₽' } } }
+  }
+});
+</script>
+
+</body>
+</html>

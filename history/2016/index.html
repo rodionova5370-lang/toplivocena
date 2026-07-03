@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Цены на бензин в 2016 году: АИ-92, АИ-95, АИ-98, АИ-100, ДТ</title>
+<meta name="description" content="Средние цены на АИ-92, АИ-95, АИ-98, АИ-100 и ДТ в России в 2016 году. Историческая динамика с 1998 года, сравнение с 2015 годом.">
+<link rel="canonical" href="https://toplivocena.ru/history/2016/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Цены на бензин в 2016 году: АИ-92, АИ-95, АИ-98, АИ-100, ДТ">
+<meta property="og:description" content="Средние цены на АИ-92, АИ-95, АИ-98, АИ-100 и ДТ в России в 2016 году. Историческая динамика с 1998 года, сравнение с 2015 годом.">
+<meta property="og:url" content="https://toplivocena.ru/history/2016/">
+<meta property="og:site_name" content="Toplivocena.ru">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Цены на бензин в 2016 году: АИ-92, АИ-95, АИ-98, АИ-100, ДТ">
+<meta name="twitter:description" content="Средние цены на АИ-92, АИ-95, АИ-98, АИ-100 и ДТ в России в 2016 году. Историческая динамика с 1998 года, сравнение с 2015 годом.">
+
+<link rel="stylesheet" href="../../style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../../index.html" class="logo">Toplivocena<span class="logo-dot">.ru</span></a>
+    <nav class="main-nav">
+      <a href="../../index.html#fuel">Виды топлива</a>
+      <a href="../../index.html#regions">Регионы</a>
+      <a href="../../index.html#compare">Сравнение</a>
+      <a href="../../index.html#history">История</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="wrap ticker-inner">
+    <span class="ticker-item"><span class="ticker-label">USD/RUB</span><span class="ticker-value">77.93 ₽</span></span>
+    <span class="ticker-item"><span class="ticker-label">Brent</span><span class="ticker-value">$70.93</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-92</span><span class="ticker-value">68.76 ₽/л</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-95</span><span class="ticker-value">74.38 ₽/л</span></span>
+    <span class="ticker-time">обновлено 2 июля 2026</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="breadcrumbs">
+    <a href="../../index.html">Главная</a><span class="sep">/</span>
+    <span>История</span><span class="sep">/</span>
+    <span>2016</span>
+  </div>
+
+  <section class="fuel-hero">
+    <h1>Цены на бензин в 2016 году</h1>
+    <div class="card fuel-stat-row grid-3">
+      <div class="fuel-stat">
+        <div class="label">АИ-92</div>
+        <div class="value">35.57 ₽/л</div>
+      </div>
+      <div class="fuel-stat">
+        <div class="label">АИ-95</div>
+        <div class="value">38.94 ₽/л</div>
+      </div>
+      <div class="fuel-stat">
+        <div class="label">АИ-98</div>
+        <div class="value">48.40 ₽/л</div>
+      </div>
+      <div class="fuel-stat">
+        <div class="label">АИ-100</div>
+        <div class="value">48.58 ₽/л</div>
+      </div>
+      <div class="fuel-stat">
+        <div class="label">ДТ</div>
+        <div class="value">38.26 ₽/л</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card analytics-text">
+    <h2>Итоги 2016 года</h2>
+    <p>Средняя цена АИ-92 в 2016 году составляла 35.57 ₽ за литр.</p>
+
+    <h2>АИ-92</h2>
+    <p>35.57 ₽ за литр (+5.0% к 2015 году). Оценка (интерполяция/пропорция от АИ-92).</p>
+
+    <h2>АИ-95</h2>
+    <p>38.94 ₽ за литр (+5.2% к 2015 году). Оценка (интерполяция/пропорция от АИ-92).</p>
+
+    <h2>АИ-98</h2>
+    <p>48.40 ₽ за литр (+5.0% к 2015 году). Оценка (интерполяция/пропорция от АИ-92).</p>
+
+    <h2>АИ-100</h2>
+    <p>48.58 ₽ за литр (+5.0% к 2015 году). Оценка (интерполяция/пропорция от АИ-92).</p>
+
+    <h2>ДТ</h2>
+    <p>38.26 ₽ за литр (+6.2% к 2015 году). Оценка (интерполяция/пропорция от АИ-92).</p>
+  </section>
+
+  <section class="card chart-card">
+    <div class="card-header">
+      <h2>Историческая динамика, 1998–2026</h2>
+    </div>
+    <canvas id="historyChart" height="90"></canvas>
+  </section>
+
+  <section class="card compare-card">
+    <div class="card-header">
+      <h2>Сравнение с 2015 годом</h2>
+    </div>
+    <div class="table-scroll">
+      <table class="compare-table">
+        <thead><tr><th>Вид топлива</th><th>2015, ₽/л</th><th>2016, ₽/л</th><th>Изменение</th></tr></thead>
+        <tbody>
+          <tr><td><a href="../../fuel/ai-92/index.html">АИ-92</a></td><td class="mono">33.89</td><td class="mono">35.57</td><td class="mono up">+5.0%</td></tr>
+          <tr><td><a href="../../fuel/ai-95/index.html">АИ-95</a></td><td class="mono">37.02</td><td class="mono">38.94</td><td class="mono up">+5.2%</td></tr>
+          <tr><td><a href="../../fuel/ai-98/index.html">АИ-98</a></td><td class="mono">46.11</td><td class="mono">48.40</td><td class="mono up">+5.0%</td></tr>
+          <tr><td><a href="../../fuel/ai-100/index.html">АИ-100</a></td><td class="mono">46.28</td><td class="mono">48.58</td><td class="mono up">+5.0%</td></tr>
+          <tr><td><a href="../../fuel/dt/index.html">ДТ</a></td><td class="mono">36.03</td><td class="mono">38.26</td><td class="mono up">+6.2%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-header">
+      <h2>Соседние годы</h2>
+    </div>
+    <div class="fuel-nav-links">
+      <a href="../2015/index.html">← 2015</a>
+      <a href="index.html" class="current">2016</a>
+      <a href="../2017/index.html">2017 →</a>
+    </div>
+    <div class="card-header" style="margin-top:24px;">
+      <h2>Смотрите также</h2>
+    </div>
+    <div class="internal-links">
+      <a href="../../fuel/ai-92/index.html">Цена АИ-92</a>
+      <a href="../../fuel/ai-95/index.html">Цена АИ-95</a>
+      <a href="../../fuel/dt/index.html">Цена ДТ</a>
+      <a href="../../index.html#regions">Цены по регионам</a>
+    </div>
+  </section>
+
+  <p class="note" style="text-align:center; padding: 0 24px 24px;">Часть цифр на странице — расчётные оценки, а не официальная статистика. Подробнее об источниках и методологии — <a href="../../about/index.html">о сайте</a>.</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <div class="logo">Toplivocena<span class="logo-dot">.ru</span></div>
+      <p>Аналитика цен на топливо в России</p>
+    </div>
+    <div class="footer-col">
+      <h4>Разделы</h4>
+      <a href="../../index.html#fuel">Виды топлива</a>
+      <a href="../../index.html#regions">Регионы</a>
+      <a href="../../index.html#compare">Сравнение</a>
+      <a href="../../index.html#history">История</a>
+      <a href="../../about/index.html">О сайте</a>
+    </div>
+    <div class="footer-col">
+      <h4>Инструменты</h4>
+      <a href="../../tools/calculator/index.html">Калькулятор расхода топлива</a>
+    </div>
+    <div class="footer-col">
+      <h4>Источники</h4>
+      <a href="https://rosstat.gov.ru" target="_blank" rel="noopener">Росстат</a>
+      <a href="https://www.spimex.com" target="_blank" rel="noopener">СПбМТСБ</a>
+      <a href="https://www.cbr.ru" target="_blank" rel="noopener">ЦБ РФ</a>
+    </div>
+  </div>
+  <div class="wrap copyright">© 2026 Toplivocena.ru</div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Цены на бензин в 2016 году: АИ-92, АИ-95, АИ-98, АИ-100, ДТ",
+  "url": "https://toplivocena.ru/history/2016/",
+  "articleSection": "Аналитика цен на топливо"
+}
+</script>
+
+<script>
+new Chart(document.getElementById('historyChart'), {
+  type: 'line',
+  data: {
+    labels: [1998, 2000, 2005, 2010, 2014, 2018, 2021, 2022, 2024, 2025, 2026],
+    datasets: [{
+      label: 'АИ-92, ₽/л',
+      data: [2.35, 6.72, 16.8, 22.50, 32.2, 38.94, 44.0, 47.21, 53.37, 61.45, 68.76],
+      borderColor: '#0f172a',
+      backgroundColor: 'rgba(15,23,42,0.05)',
+      fill: true,
+      tension: 0.25,
+      pointBackgroundColor: (ctx) => ctx.parsed && ctx.parsed.x === 2016 ? '#dc2626' : '#0f172a'
+    }]
+  },
+  options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { ticks: { callback: v => v + ' ₽' } } } }
+});
+</script>
+
+</body>
+</html>

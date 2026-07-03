@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Цена АИ-95 сегодня</title>
+<meta name="description" content="Текущая цена АИ-95 сегодня: 74.38 ₽/л. Динамика, сравнение с другими видами топлива, история цен по годам, цены по регионам.">
+<link rel="canonical" href="https://toplivocena.ru/fuel/ai-95/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Цена АИ-95 сегодня">
+<meta property="og:description" content="Текущая цена АИ-95 сегодня: 74.38 ₽/л. Динамика, сравнение с другими видами топлива, история цен по годам, цены по регионам.">
+<meta property="og:url" content="https://toplivocena.ru/fuel/ai-95/">
+<meta property="og:site_name" content="Toplivocena.ru">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Цена АИ-95 сегодня">
+<meta name="twitter:description" content="Текущая цена АИ-95 сегодня: 74.38 ₽/л. Динамика, сравнение с другими видами топлива, история цен по годам, цены по регионам.">
+
+<link rel="stylesheet" href="../../style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../../index.html" class="logo">Toplivocena<span class="logo-dot">.ru</span></a>
+    <nav class="main-nav">
+      <a href="../../index.html#fuel">Виды топлива</a>
+      <a href="../../index.html#regions">Регионы</a>
+      <a href="../../index.html#compare">Сравнение</a>
+      <a href="../../index.html#history">История</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="wrap ticker-inner">
+    <span class="ticker-item"><span class="ticker-label">USD/RUB</span><span class="ticker-value">77.93 ₽</span></span>
+    <span class="ticker-item"><span class="ticker-label">Brent</span><span class="ticker-value">$70.93</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-92</span><span class="ticker-value">68.76 ₽/л</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-95</span><span class="ticker-value">74.38 ₽/л</span></span>
+    <span class="ticker-time">обновлено 2 июля 2026</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="breadcrumbs">
+    <a href="../../index.html">Главная</a><span class="sep">/</span>
+    <a href="../../index.html#fuel">Виды топлива</a><span class="sep">/</span>
+    <span>АИ-95</span>
+  </div>
+
+  <section class="fuel-hero">
+    <h1>Цена бензина АИ-95 сегодня</h1>
+    <div class="updated">Обновлено: <span id="updatedDate"></span> · источник: Росстат, СПбМТСБ</div>
+    <div class="card fuel-stat-row">
+      <div class="fuel-stat">
+        <div class="label">Текущая цена</div>
+        <div class="value big">74.38 ₽/л</div>
+      </div>
+      <div class="fuel-stat">
+        <div class="label">За неделю</div>
+        <div class="value up">+0.5%</div>
+      </div>
+      <div class="fuel-stat">
+        <div class="label">За месяц</div>
+        <div class="value up">+2.1%</div>
+      </div>
+      <div class="fuel-stat">
+        <div class="label">За год</div>
+        <div class="value up">+13.0%</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card chart-card">
+    <div class="card-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <h2>Динамика цены АИ-95</h2>
+      <div class="period-switch" id="periodSwitch">
+        <button data-period="6m" class="active">6 месяцев</button>
+        <button data-period="1y">1 год</button>
+        <button data-period="5y">5 лет</button>
+      </div>
+    </div>
+    <canvas id="fuelChart" height="90"></canvas>
+  </section>
+
+  <section class="card compare-card">
+    <div class="card-header">
+      <h2>Цена АИ-95 по регионам</h2>
+    </div>
+    <div class="table-scroll">
+      <table class="compare-table region-table" id="regionTable">
+        <thead>
+          <tr>
+            <th data-sort="name">Регион ▾</th>
+            <th data-sort="price">Цена АИ-95, ₽/л ▾</th>
+            <th data-sort="delta">Отклонение от среднего ▾</th>
+          </tr>
+        </thead>
+        <tbody id="regionTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card compare-card">
+    <div class="card-header">
+      <h2>Сравнение с другими видами топлива</h2>
+    </div>
+    <canvas id="miniCompareChart" height="70"></canvas>
+  </section>
+
+  <section class="card compare-card">
+    <div class="card-header">
+      <h2>Цена АИ-95 по годам</h2>
+    </div>
+    <div class="table-scroll">
+      <table class="compare-table">
+        <thead><tr><th>Год</th><th>Средняя цена, ₽/л</th></tr></thead>
+        <tbody>
+          <tr><td>2018</td><td class="mono">45.54</td></tr>
+          <tr><td>2020</td><td class="mono">49.54</td></tr>
+          <tr><td>2022</td><td class="mono">56.57</td></tr>
+          <tr><td>2024</td><td class="mono">63.71</td></tr>
+          <tr><td>2025</td><td class="mono">69.01</td></tr>
+          <tr><td>2026</td><td class="mono">74.38</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card analytics-text">
+    <h2>Что влияет на цену АИ-95</h2>
+    <p>АИ-95 — второй по популярности бензин в России и основной выбор для большинства современных легковых автомобилей. По данным Росстата, на неделе с 22 по 29 июня 2026 года средняя цена АИ-95 составила 74,38 ₽ за литр — рост на 0,5% за неделю и 2,1% за месяц, что немного быстрее, чем у АИ-92.</p>
+    <p>Разница в цене между АИ-95 и АИ-92 сейчас составляет около 5,6 ₽ за литр и объясняется более высоким октановым числом и дополнительными затратами на производство. В Москве АИ-95 стоит 74,25 ₽/л, в Санкт-Петербурге — 68,87 ₽/л, а разброс по регионам страны превышает 20 рублей.</p>
+    <p>На стоимость АИ-95 влияют те же факторы, что и на весь рынок бензина: курс доллара (77,93 ₽ на 2 июля 2026), цена нефти Brent (70,93 $/барр.) и логистические издержки. По итогам 2026 года рост цены АИ-95 может превысить 13% к уровню прошлого года.</p>
+  </section>
+
+  <section class="card">
+    <div class="card-header">
+      <h2>Другие виды топлива</h2>
+    </div>
+    <div class="fuel-nav-links">
+      <a href="../ai-92/index.html">АИ-92</a>
+      <a href="../ai-95/index.html" class="current">АИ-95</a>
+      <a href="../ai-98/index.html">АИ-98</a>
+      <a href="../ai-100/index.html">АИ-100</a>
+      <a href="../dt/index.html">ДТ</a>
+    </div>
+    <div class="card-header" style="margin-top:24px;">
+      <h2>Смотрите также</h2>
+    </div>
+    <div class="internal-links">
+      <a href="../../index.html#regions">Цены по регионам России</a>
+      <a href="../../index.html#compare">Сравнение видов топлива</a>
+      <a href="../../history/2026/index.html">История цен на топливо</a>
+      <a href="../../tools/calculator/index.html">Калькулятор расхода топлива</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <div class="logo">Toplivocena<span class="logo-dot">.ru</span></div>
+      <p>Аналитика цен на топливо в России</p>
+    </div>
+    <div class="footer-col">
+      <h4>Разделы</h4>
+      <a href="../../index.html#fuel">Виды топлива</a>
+      <a href="../../index.html#regions">Регионы</a>
+      <a href="../../index.html#compare">Сравнение</a>
+      <a href="../../index.html#history">История</a>
+      <a href="../../about/index.html">О сайте</a>
+    </div>
+    <div class="footer-col">
+      <h4>Инструменты</h4>
+      <a href="../../tools/calculator/index.html">Калькулятор расхода топлива</a>
+    </div>
+    <div class="footer-col">
+      <h4>Источники</h4>
+      <a href="https://rosstat.gov.ru" target="_blank" rel="noopener">Росстат</a>
+      <a href="https://www.spimex.com" target="_blank" rel="noopener">СПбМТСБ</a>
+      <a href="https://www.cbr.ru" target="_blank" rel="noopener">ЦБ РФ</a>
+    </div>
+  </div>
+  <div class="wrap copyright">© 2026 Toplivocena.ru</div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Цена бензина АИ-95 сегодня",
+  "url": "https://toplivocena.ru/fuel/ai-95/",
+  "dateModified": "2026-07-03",
+  "mainEntity": {
+    "@type": "Dataset",
+    "name": "Цены на АИ-95 по регионам России",
+    "description": "Набор данных о розничных ценах на АИ-95 в регионах России, обновляется еженедельно на основе данных Росстата.",
+    "temporalCoverage": "2026-07-03"
+  }
+}
+</script>
+
+<script>
+document.getElementById('updatedDate').textContent = new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const regions = [
+  { name: 'Челябинская область', price: 62.09 },
+  { name: 'Курганская область', price: 62.12 },
+  { name: 'Омская область', price: 62.49 },
+  { name: 'Томская область', price: 62.69 },
+  { name: 'Алтайский край', price: 63.52 },
+  { name: 'Свердловская область', price: 66.2 },
+  { name: 'Санкт-Петербург', price: 68.87 },
+  { name: 'Краснодарский край', price: 69.01 },
+  { name: 'Москва', price: 74.25 },
+  { name: 'Чукотский АО', price: 84.0 },
+  { name: 'Республика Саха (Якутия)', price: 85.34 },
+  { name: 'Магаданская область', price: 87.08 },
+  { name: 'Сахалинская область', price: 87.11 },
+  { name: 'Камчатский край', price: 90.24 }
+];
+const nationalAvg = 74.38;
+
+let sortKey = 'price';
+let sortDir = 1;
+
+function renderTable() {
+  const tbody = document.getElementById('regionTableBody');
+  tbody.innerHTML = '';
+  let list = regions.slice();
+  list.sort((a, b) => {
+    if (sortKey === 'name') return a.name.localeCompare(b.name) * sortDir;
+    if (sortKey === 'delta') return ((a.price - nationalAvg) - (b.price - nationalAvg)) * sortDir;
+    return (a.price - b.price) * sortDir;
+  });
+  list.forEach(r => {
+    const delta = r.price - nationalAvg;
+    const deltaStr = (delta >= 0 ? '+' : '') + delta.toFixed(2) + ' ₽';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r.name}</td><td class="mono">${r.price.toFixed(2)}</td><td class="mono ${delta >= 0 ? 'up' : 'down'}">${deltaStr}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+renderTable();
+
+document.querySelectorAll('#regionTable th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const key = th.dataset.sort;
+    sortDir = (sortKey === key) ? -sortDir : 1;
+    sortKey = key;
+    renderTable();
+  });
+});
+
+const monthly = {
+  labels: ['Июл 25', 'Авг 25', 'Сен 25', 'Окт 25', 'Ноя 25', 'Дек 25', 'Янв 26', 'Фев 26', 'Мар 26', 'Апр 26', 'Май 26', 'Июн 26'],
+  data: [65.8, 66.5, 67.1, 67.8, 68.4, 69.0, 69.7, 70.4, 71.2, 72.1, 73.1, 74.38]
+};
+const yearly5 = {
+  labels: ['2022', '2023', '2024', '2025', '2026'],
+  data: [56.57, 60.04, 63.71, 69.01, 74.38]
+};
+
+const ctx = document.getElementById('fuelChart');
+let fuelChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: monthly.labels.slice(6),
+    datasets: [{ label: 'АИ-95, ₽/л', data: monthly.data.slice(6), borderColor: '#475569', backgroundColor: 'rgba(71,85,105,0.06)', fill: true, tension: 0.3 }]
+  },
+  options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { ticks: { callback: v => v + ' ₽' } } } }
+});
+
+document.querySelectorAll('#periodSwitch button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#periodSwitch button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const period = btn.dataset.period;
+    let labels, data;
+    if (period === '6m') { labels = monthly.labels.slice(6); data = monthly.data.slice(6); }
+    else if (period === '1y') { labels = monthly.labels; data = monthly.data; }
+    else { labels = yearly5.labels; data = yearly5.data; }
+    fuelChart.data.labels = labels;
+    fuelChart.data.datasets[0].data = data;
+    fuelChart.update();
+  });
+});
+
+new Chart(document.getElementById('miniCompareChart'), {
+  type: 'bar',
+  data: {
+    labels: ['АИ-92', 'АИ-95', 'АИ-98', 'АИ-100', 'ДТ'],
+    datasets: [{
+      data: [68.76, 74.38, 93.56, 93.9, 80.69],
+      backgroundColor: ['#94a3b8', '#0f172a', '#94a3b8', '#94a3b8', '#94a3b8'],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: { x: { ticks: { callback: v => v + ' ₽' } } }
+  }
+});
+</script>
+
+</body>
+</html>
