@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="yandex-verification" content="650ce87388e5f96a" />
+<meta name="msvalidate.01" content="3FB04DDA2BB6883799F6E625D04971EF" />
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
@@ -56,11 +57,11 @@
 <!-- Live ticker -->
 <div class="ticker">
   <div class="wrap ticker-inner">
-    <span class="ticker-item"><span class="ticker-label">USD/RUB</span><span class="ticker-value">77.93 ₽</span></span>
-    <span class="ticker-item"><span class="ticker-label">Brent</span><span class="ticker-value">$70.93</span></span>
-    <span class="ticker-item"><span class="ticker-label">АИ-92</span><span class="ticker-value">68.76 ₽/л</span></span>
-    <span class="ticker-item"><span class="ticker-label">АИ-95</span><span class="ticker-value">74.38 ₽/л</span></span>
-    <span class="ticker-time">обновлено 2 июля 2026</span>
+    <span class="ticker-item"><span class="ticker-label">USD/RUB</span><span class="ticker-value" data-ticker="usd">77.93 ₽</span></span>
+    <span class="ticker-item"><span class="ticker-label">Brent</span><span class="ticker-value" data-ticker="brent">$70.93</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-92</span><span class="ticker-value" data-ticker="ai92">68.76 ₽/л</span></span>
+    <span class="ticker-item"><span class="ticker-label">АИ-95</span><span class="ticker-value" data-ticker="ai95">74.38 ₽/л</span></span>
+    <span class="ticker-time" data-ticker="date">обновлено 2 июля 2026</span>
   </div>
 </div>
 
@@ -68,40 +69,40 @@
 
   <!-- KPI cards -->
   <section class="kpi-grid" id="fuel">
-    <a href="fuel/ai-92/" class="card kpi-card">
+    <a href="fuel/ai-92/" class="card kpi-card" data-fuel="ai92">
       <div class="kpi-top">
         <span class="kpi-name">АИ-92</span>
       </div>
-      <div class="kpi-price">68.76 <span class="kpi-unit">₽/л</span></div>
-      <div class="kpi-sub">+1.8% за месяц · Росстат, 22–29 июня 2026</div>
+      <div class="kpi-price" data-field="price">68.76 <span class="kpi-unit">₽/л</span></div>
+      <div class="kpi-sub" data-field="sub">+1.8% за месяц · Росстат, 22–29 июня 2026</div>
     </a>
-    <a href="fuel/ai-95/" class="card kpi-card">
+    <a href="fuel/ai-95/" class="card kpi-card" data-fuel="ai95">
       <div class="kpi-top">
         <span class="kpi-name">АИ-95</span>
       </div>
-      <div class="kpi-price">74.38 <span class="kpi-unit">₽/л</span></div>
-      <div class="kpi-sub">+2.1% за месяц · Росстат, 22–29 июня 2026</div>
+      <div class="kpi-price" data-field="price">74.38 <span class="kpi-unit">₽/л</span></div>
+      <div class="kpi-sub" data-field="sub">+2.1% за месяц · Росстат, 22–29 июня 2026</div>
     </a>
-    <a href="fuel/ai-98/" class="card kpi-card">
+    <a href="fuel/ai-98/" class="card kpi-card" data-fuel="ai98">
       <div class="kpi-top">
         <span class="kpi-name">АИ-98</span>
       </div>
-      <div class="kpi-price">93.56 <span class="kpi-unit">₽/л</span></div>
-      <div class="kpi-sub">по данным агрегаторов, 2 июля 2026</div>
+      <div class="kpi-price" data-field="price">93.56 <span class="kpi-unit">₽/л</span></div>
+      <div class="kpi-sub" data-field="sub">по данным агрегаторов, 2 июля 2026</div>
     </a>
-    <a href="fuel/dt/" class="card kpi-card">
+    <a href="fuel/dt/" class="card kpi-card" data-fuel="dt">
       <div class="kpi-top">
         <span class="kpi-name">ДТ</span>
       </div>
-      <div class="kpi-price">80.69 <span class="kpi-unit">₽/л</span></div>
-      <div class="kpi-sub">по данным агрегаторов, 2 июля 2026</div>
+      <div class="kpi-price" data-field="price">80.69 <span class="kpi-unit">₽/л</span></div>
+      <div class="kpi-sub" data-field="sub">по данным агрегаторов, 2 июля 2026</div>
     </a>
-    <a href="fuel/ai-100/" class="card kpi-card">
+    <a href="fuel/ai-100/" class="card kpi-card" data-fuel="ai100">
       <div class="kpi-top">
         <span class="kpi-name">АИ-100</span>
       </div>
-      <div class="kpi-price">93.90 <span class="kpi-unit">₽/л</span></div>
-      <div class="kpi-sub">по данным агрегаторов, 2 июля 2026</div>
+      <div class="kpi-price" data-field="price">93.90 <span class="kpi-unit">₽/л</span></div>
+      <div class="kpi-sub" data-field="sub">по данным агрегаторов, 2 июля 2026</div>
     </a>
   </section>
 
@@ -151,11 +152,11 @@
           <tr><th>Вид топлива</th><th>Цена, ₽/л</th><th>За неделю</th><th>За месяц</th></tr>
         </thead>
         <tbody>
-          <tr><td><a href="fuel/ai-92/">АИ-92</a></td><td class="mono">68.76</td><td class="mono up">+0.4%</td><td class="mono up">+1.8%</td></tr>
-          <tr><td><a href="fuel/ai-95/">АИ-95</a></td><td class="mono">74.38</td><td class="mono up">+0.5%</td><td class="mono up">+2.1%</td></tr>
-          <tr><td><a href="fuel/ai-98/">АИ-98</a></td><td class="mono">93.56</td><td class="mono up">+0.3%</td><td class="mono up">+1.5%</td></tr>
-          <tr><td><a href="fuel/dt/">ДТ</a></td><td class="mono">80.69</td><td class="mono up">+0.6%</td><td class="mono up">+2.4%</td></tr>
-          <tr><td><a href="fuel/ai-100/">АИ-100</a></td><td class="mono">93.90</td><td class="mono up">+0.3%</td><td class="mono up">+1.4%</td></tr>
+          <tr data-fuel="ai92"><td><a href="fuel/ai-92/">АИ-92</a></td><td class="mono" data-field="price">68.76</td><td class="mono up" data-field="week">+0.4%</td><td class="mono up" data-field="month">+1.8%</td></tr>
+          <tr data-fuel="ai95"><td><a href="fuel/ai-95/">АИ-95</a></td><td class="mono" data-field="price">74.38</td><td class="mono up" data-field="week">+0.5%</td><td class="mono up" data-field="month">+2.1%</td></tr>
+          <tr data-fuel="ai98"><td><a href="fuel/ai-98/">АИ-98</a></td><td class="mono" data-field="price">93.56</td><td class="mono up" data-field="week">+0.3%</td><td class="mono up" data-field="month">+1.5%</td></tr>
+          <tr data-fuel="dt"><td><a href="fuel/dt/">ДТ</a></td><td class="mono" data-field="price">80.69</td><td class="mono up" data-field="week">+0.6%</td><td class="mono up" data-field="month">+2.4%</td></tr>
+          <tr data-fuel="ai100"><td><a href="fuel/ai-100/">АИ-100</a></td><td class="mono" data-field="price">93.90</td><td class="mono up" data-field="week">+0.3%</td><td class="mono up" data-field="month">+1.4%</td></tr>
         </tbody>
       </table>
     </div>
