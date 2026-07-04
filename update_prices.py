@@ -11,36 +11,8 @@ import glob
 with open('data/current-prices.json', encoding='utf-8') as f:
     data = json.load(f)
 
-FUEL_TICKER_LABEL = {'ai92': 'АИ-92', 'ai95': 'АИ-95'}  # only these two appear in ticker
-
-# --- 1. Ticker on all pages ---
-ticker_files = glob.glob('**/index.html', recursive=True)
-ticker_updates = 0
-for path in ticker_files:
-    content = open(path, encoding='utf-8').read()
-    original = content
-
-    content = re.sub(
-        r'(<span class="ticker-value" data-ticker="usd">)[^<]*(</span>)',
-        rf'\g<1>{data["usd"]}\g<2>', content)
-    content = re.sub(
-        r'(<span class="ticker-value" data-ticker="brent">)[^<]*(</span>)',
-        rf'\g<1>{data["brent"]}\g<2>', content)
-    content = re.sub(
-        r'(<span class="ticker-value" data-ticker="ai92">)[^<]*(</span>)',
-        rf'\g<1>{data["fuels"]["ai92"]["unit_ticker"]}\g<2>', content)
-    content = re.sub(
-        r'(<span class="ticker-value" data-ticker="ai95">)[^<]*(</span>)',
-        rf'\g<1>{data["fuels"]["ai95"]["unit_ticker"]}\g<2>', content)
-    content = re.sub(
-        r'(<span class="ticker-time" data-ticker="date">)[^<]*(</span>)',
-        rf'\g<1>обновлено {data["date_label"]}\g<2>', content)
-
-    if content != original:
-        open(path, 'w', encoding='utf-8').write(content)
-        ticker_updates += 1
-
-print(f'Ticker updated in {ticker_updates} files')
+# Ticker (USD/Brent only) is updated separately by update_ticker.py (daily).
+# This script only updates fuel prices (weekly): homepage KPI/compare table + fuel hero blocks.
 
 # --- 2. Homepage KPI cards + compare table ---
 home_path = 'index.html'
@@ -50,7 +22,7 @@ for fuel, d in data['fuels'].items():
     if d['source'] == 'rosstat':
         sub = f'{d["month"]} за месяц · Росстат, {data["rosstat_week_label"]}'
     else:
-        sub = f'по данным агрегаторов, {data["date_label"]}'
+        sub = f'по данным агрегаторов, {data["fuel_date_label"]}'
 
     # KPI card price
     content = re.sub(
@@ -92,7 +64,7 @@ for fuel, slug in slug_map.items():
         rf'\g<1>{d["year"]}\g<2>', content)
     content = re.sub(
         r'(data-field="updated">Обновлено: )[^<]*(</div>)',
-        rf'\g<1>{data["date_label"]}\g<2>', content)
+        rf'\g<1>{data["fuel_date_label"]}\g<2>', content)
 
     open(path, 'w', encoding='utf-8').write(content)
 
