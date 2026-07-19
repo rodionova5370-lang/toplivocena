@@ -1,9 +1,9 @@
 {
-  "ticker_date_label": "17 июля 2026",
+  "ticker_date_label": "18 июля 2026",
   "fuel_date_label": "16 июля 2026",
   "rosstat_week_label": "7 – 13 июля 2026",
-  "usd": "78.61 ₽",
-  "brent": "$85.00",
+  "usd": "78.12 ₽",
+  "brent": "$88.10",
   "fuels": {
     "ai92": {
       "price": "71.90",
